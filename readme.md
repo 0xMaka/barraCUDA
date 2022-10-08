@@ -12,7 +12,7 @@ An ex. sequence would be to:
 - - Execute one or more kernels to operate on data
 - - Transfer results from device to host
 
-### \_\_global\_\_
+### \_\_global\_\_ (keyword)
 ```
 __global__ void my_func(void);
 ```
@@ -25,7 +25,7 @@ __global__ void my_func(void);
 - - Device functions such as  those decorated by the \_\_global\_\_ dundar, are processed by the nvidia compiler.
 - - Host functions, such a standard main() are processed by the systems compiler, such as gcc.
 
-### Unified memory
+### Unified Memory
 Offers a *single-pointer-to-data* model. 
 Similar to cuda zero-copy memory, except here seperates memory and execution areas to increase access speed, as opposed to location being pinned in system memory.
 - Provides a single memory space, accessible by all hosts and devices on the system.
