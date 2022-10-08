@@ -22,18 +22,18 @@ int main(void) {
     y[i] = 2.0f;
   }
   // init dev arrays via cp, std::memcpy + directional arg
-	// source: host pointer
-	// dest: device pointer
-	cudaMemcpy(devx, x, N*sizeof(float), cudaMemcpyHostToDevice);
-	cudaMemcpy(devy, y, N*sizeof(float), cudaMemcpyHostToDevice);
+  // source: host pointer
+  // dest: device pointer
+  cudaMemcpy(devx, x, N*sizeof(float), cudaMemcpyHostToDevice);
+  cudaMemcpy(devy, y, N*sizeof(float), cudaMemcpyHostToDevice);
   // launch kernel 
-	// Between trip chevs is the `execution config`
+  // Between trip chevs is the `execution config`
   saxpy<<<(N+255)/256,256>>>(N, 2.0f, devx, devy);
   // cp back results after running kernel function
-	cudaMemcpy(y, devy, N*sizeof(float), cudaMemcpyDeviceToHost);
+  cudaMemcpy(y, devy, N*sizeof(float), cudaMemcpyDeviceToHost);
 
-	float maxError = 0.0f;
-	for(int i=0; i<N; i++)
+  float maxError = 0.0f;
+  for(int i=0; i<N; i++)
     maxError = max(maxError, abs(y[i]-4.0f));
   printf("Max error %.*f\n", 6, maxError);			
 
