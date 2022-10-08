@@ -1,6 +1,18 @@
 # CUDA - Notes and experimentation 🐟
 
 ## Basics:
+Host (CPU) controls flow of program:
+- starts from main(), as usual.
+- offloads explicitly defined kernel functions to the device (GPU).
+
+An ex. sequence would be to:
+- - Declare and allocate host and device memory
+- - Initialize host data
+- - Transfer data from the host to device
+- - Execute one or more kernels to operate on data
+- - Transfer results from device to host
+
+## Keywords:
 ### \_\_global\_\_
 ```
 __global__ void my_func(void);
@@ -9,6 +21,7 @@ __global__ void my_func(void);
 - - Runs on the GPU (device)
 - - Is called from the CPU (host), or other device code.
 
+## Glossery
 ### nvcc - nvidia's c complier
 - Parses which functions to process:
 - - Device functions such as  those decorated by the \_\_global\_\_ dundar, are processed by the nvidia compiler.
