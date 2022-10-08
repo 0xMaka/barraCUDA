@@ -40,7 +40,7 @@ __global__ void my_func(void);
 - - Additional calls cannot be made until transfer is complete
 - - Once kernels are launched control returns to host
 
-**NOTE** Kernal launches are asynchronous
+**NOTE** :bulb: Kernel launches are asynchronous
 
 ---
 
