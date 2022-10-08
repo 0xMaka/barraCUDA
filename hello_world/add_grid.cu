@@ -35,7 +35,7 @@ int main(void) {
 
 //std::cout << "<<< " << numBlocks << ", " << blockSize << " >>>" << std::endl;
   
-  // wait for gpu to finish before accessing cpu
+  // wait for gpu to finish before accessing results
   cudaDeviceSynchronize();
 
   // check for errors (all values should be 3.0f)
