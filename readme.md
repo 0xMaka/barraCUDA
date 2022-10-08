@@ -22,12 +22,9 @@ __global__ void my_func(void);
 
 ### grid-strid-loop
 ```
-... {
   int index = blockIdx.x * blockDim.x + threadIdx.x;
   int stride = blockDim.x * gridDim.x;
   for (int i = index; i < n; i += stride)
-  ...;
-} ...
 ```
 
 - ```(blockIdx.x * blockDim.x) + threadIdx.x``` is idiomatic CUDA.
