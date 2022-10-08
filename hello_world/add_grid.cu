@@ -30,7 +30,7 @@ int main(void) {
   // divide n by block size (round up)
   int blockSize = 256;
   int numBlocks = (N + blockSize -1) / blockSize;
-  // run kernel on 4096mill elements, 256 threads of the gpu
+  // run kernel on 4096 blocks, 256 threads of the gpu
   add<<<numBlocks,blockSize>>>(N,x,y);
 
 //std::cout << "<<< " << numBlocks << ", " << blockSize << " >>>" << std::endl;
