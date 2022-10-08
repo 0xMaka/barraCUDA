@@ -31,7 +31,16 @@ __global__ void my_func(void);
 - - Each thread obtains index via computing offset relative to start of block.
 - - (block index * block size) + thread index
 
-- - ```(blockDim.x * gridDim.x)``` sets *stride* to the total number of threads in grid 
+- - ```(blockDim.x * gridDim.x)``` sets *stride* to the total number of threads in grid
+
+### Host-Device Synchronization
+- Data transfer between host and device using cudaMemcpy() is synchronous
+- - Transfers are blocking
+- - Synchronous data transfers will not begin until all previously issued cuda calls have completed
+- - Additional calls cannot be made until tranfer is complete
+- - Once kernels are launched control returns to host and does not wait for them to complete.
+**NOTE** Kernal launches are asynchronous
+
 ---
 
 ### Tasks:
