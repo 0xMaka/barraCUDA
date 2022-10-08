@@ -1,7 +1,7 @@
 # CUDA - Notes and experimentation 🐟
 
 ## Basics:
-### \_\_global\_\_: 
+### \_\_global\_\_
 ```
 __global__ void my_func(void);
 ```
