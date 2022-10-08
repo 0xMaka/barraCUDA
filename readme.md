@@ -22,12 +22,6 @@ __global__ void my_func(void);
 
 ### grid-strid-loop
 ```
-(blockIdx.x * blockDim.x) + threadIdx.x
-```
-- Is idiomatic CUDA.
-- - Each thread obtains index via computing offset relative to start of block.
-- - (block index * block size) + thread index
-```
 ... {
   int index = blockIdx.x * blockDim.x + threadIdx.x;
   int stride = blockDim.x * gridDim.x;
@@ -35,7 +29,10 @@ __global__ void my_func(void);
   ...;
 } ...
 ```
-- - sets *stride* to the total number of threads in grid ```(blockDim.x * gridDim.x)```
 
+- ```(blockIdx.x * blockDim.x) + threadIdx.x``` is idiomatic CUDA.
+- - Each thread obtains index via computing offset relative to start of block.
+- - (block index * block size) + thread index
 
+- - ```(blockDim.x * gridDim.x)``` sets *stride* to the total number of threads in grid 
 ---
