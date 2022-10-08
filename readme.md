@@ -37,8 +37,9 @@ __global__ void my_func(void);
 - Data transfer between host and device using cudaMemcpy() is synchronous
 - - Transfers are blocking
 - - Synchronous data transfers will not begin until all previously issued cuda calls have completed
-- - Additional calls cannot be made until tranfer is complete
-- - Once kernels are launched control returns to host and does not wait for them to complete.
+- - Additional calls cannot be made until transfer is complete
+- - Once kernels are launched control returns to host
+
 **NOTE** Kernal launches are asynchronous
 
 ---
