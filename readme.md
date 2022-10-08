@@ -15,7 +15,8 @@ __global__ void my_func(void);
 - - Host functions, such a standard main() are processed by the systems compiler, such as gcc.
 
 ### Unified memory
-
+Offers a `single-pointer-to-data` model. 
+Similar to cuda zero-copy memory, except here seperates memory and execution areas to increase access speed, as opposed to location being pinned in system memory.
 - Provides a single memory space, accessible by all hosts and devices on the system.
 - - cudaMallocManaged() - returns a pointer that can be accessessed from host, or device code.
 - - Once done with the data, pointer should be passed to cudaFree().
