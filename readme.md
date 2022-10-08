@@ -20,11 +20,12 @@ __global__ void my_func(void);
 - - cudaMallocManaged() - returns a pointer that can be accessessed from host, or device code.
 - - Once done with the data, pointer should be passed to cudaFree().
 
-### grid-strid-loop
+### grid-stride-loop
 ```
   int index = blockIdx.x * blockDim.x + threadIdx.x;
   int stride = blockDim.x * gridDim.x;
   for (int i = index; i < n; i += stride)
+    y[i] = x[i] + y[i];
 ```
 
 - ```(blockIdx.x * blockDim.x) + threadIdx.x``` is idiomatic CUDA.
