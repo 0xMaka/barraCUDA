@@ -7,7 +7,7 @@ __global__ void my_func(void);
 ```
 
 - Indicates a function that:
-- - Runs on the GPU (host)
+- - Runs on the GPU (device)
 - - Is called from the CPU (host), or other device code.
 
 ### nvcc - nvidia's c complier
