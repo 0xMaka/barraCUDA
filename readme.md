@@ -33,3 +33,7 @@ __global__ void my_func(void);
 
 - - ```(blockDim.x * gridDim.x)``` sets *stride* to the total number of threads in grid 
 ---
+
+### Tasks:
+[ ] Create a character frequency analyizer and adapt it to complete the 3rd matisano challenge.
+[ ] Explore Monte Carlo options pricing, before analyzing sim utility from a crypto native perspective.
