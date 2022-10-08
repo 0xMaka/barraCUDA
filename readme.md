@@ -5,7 +5,6 @@
 ```
 __global__ void my_func(void);
 ```
-
 - Indicates a function that:
 - - Runs on the GPU (device)
 - - Is called from the CPU (host), or other device code.
@@ -20,5 +19,23 @@ __global__ void my_func(void);
 - Provides a single memory space, accessible by all hosts and devices on the system.
 - - cudaMallocManaged() - returns a pointer that can be accessessed from host, or device code.
 - - Once done with the data, pointer should be passed to cudaFree().
+
+### grid-strid-loop
+```
+(blockIdx.x * blockDim.x) + threadIdx.x
+```
+- Is idiomatic CUDA.
+- - Each thread obtains index via computing offset relative to start of block.
+- - (block index * block size) + thread index
+```
+... {
+  int index = blockIdx.x * blockDim.x + threadIdx.x;
+  int stride = blockDim.x * gridDim.x;
+  for (int i = index; i < n; i += stride)
+  ...;
+} ...
+```
+- - sets *stride* to the total number of threads in grid ```(blockDim.x * gridDim.x)```
+
 
 ---
