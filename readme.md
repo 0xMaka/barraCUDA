@@ -1,10 +1,11 @@
 # CUDA - Personal notes and experimentation 🐟
 ---
+
 ## Basics:
 
 Cuda programs involve running code on two different platforms at the same time.
 - A host system with one or more CPUs 
-- One or more CUDA-enabled GPU's devices.
+- One or more CUDA-enabled GPU devices
 
 Host (CPU) controls flow of program, offloading explicitly defined kernel functions to the device (GPU).
 
