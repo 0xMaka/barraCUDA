@@ -67,5 +67,3 @@
 - - 8 GB GDDR6	
 - Power consumption
 - - 200 W	
-
-**NOTE**: Most tests performed on Mobile Edition

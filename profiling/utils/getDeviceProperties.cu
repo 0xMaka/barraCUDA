@@ -2,8 +2,10 @@
 
 int main() {
   int nDevices;
-
-  cudaGetDeviceCount(&nDevices);
+  // returns number of cuda capable devices
+  cudaError_t err = cudaGetDeviceCount(&nDevices);
+	if (err != cudaSuccess)
+    printf("%s\n", cudaGetErrorString(err));
   for (int i=0; i<nDevices; i++) {
     cudaDeviceProp prop;
     cudaGetDeviceProperties(&prop, i);
