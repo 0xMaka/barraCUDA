@@ -8,6 +8,7 @@ __global__ void saxpy(int n, float a, float *x, float *y) {
   if(i < n) // if in bounds
     y[i] = (a * x[i]) + y[i]; // single-precision ax+y
 }
+
 // Host function
 int main(void) {
   int N = 1<<20; // 1mill

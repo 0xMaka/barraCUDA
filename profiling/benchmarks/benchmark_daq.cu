@@ -6,7 +6,9 @@
   if wanting to be selective and save time, we can use cudaDeviceGetAttribute()
   To see just how much time we can save let's benchmark queries..
 */
+
 int devId = 0;
+
 void get_all(void) {
   cudaDeviceProp prop;
   auto t0 = std::chrono::high_resolution_clock::now();
@@ -42,6 +44,7 @@ int main(void) {
   get_selected();
   return 0;
 }
+
 /* ex. Output
 cudaGetDeviceProperties -> 3664.08us
 cudaGetDeviceAttribute -> 0.04us
