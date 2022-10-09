@@ -8,6 +8,7 @@ int hello(void) {
   }
   return 1;
 }
+
 int main(void) {
   if(hello()!=1) 
     printf("An error occured!\n");

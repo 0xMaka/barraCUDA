@@ -7,15 +7,15 @@ __global__ void hello(void) {
 
 int main(void) {
   hello<<<1,5>>>();
-	cudaError_t errSync = cudaGetLastError();
+  cudaError_t errSync = cudaGetLastError();
   cudaError_t errAsync = cudaDeviceSynchronize();
 
-	if (errSync != cudaSuccess)
+  if (errSync != cudaSuccess)
     printf("Sync kernel error!\n%s\n", cudaGetErrorString(errSync));
   if (errAsync != cudaSuccess)
     printf("Async kernel error!\n%s\n", cudaGetErrorString(errAsync));
   
-	return 0;
+  return 0;
 }
 
 /* ex. Output
