@@ -18,9 +18,9 @@ An ex. sequence would be to:
 GPU's provide much higher instruction throughput and memory bandwidth than CPU's.
 
 - CPU's are designed to execute a sequence of operations (a thread), as fast as possible
-- - CPU's can execute a few tens in parallel 
+- - Can execute a few tens in parallel 
 - GPU's amortize slower single-thread performance for greater throughput
-- - GPU's excel at executing thousands of threads in parallel, with transistors devoted to data processing over data caching and flow control
+- - Excel at executing thousands of threads in parallel, with transistors devoted to data processing over data caching and flow control
 
 ### \_\_global\_\_ (keyword)
 ```
