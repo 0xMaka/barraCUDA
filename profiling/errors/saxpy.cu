@@ -30,7 +30,7 @@ int main(void) {
   cudaError_t errSync = cudaGetLastError();
   // async errors, such as out of bound memory access
   // needs a device sync, so is expensive..
-  // use with care. ie not in production
+  // use with care. ie for debugging but not in production
   cudaError_t errAsync = cudaDeviceSynchronize();
   if (errSync != cudaSuccess)
     printf("Sync kernel error: %s\n", cudaGetErrorString(errSync));

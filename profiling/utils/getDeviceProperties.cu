@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main() {
   int nDevices;
   // returns number of cuda capable devices
