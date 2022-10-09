@@ -10,12 +10,12 @@ int devId = 0;
 void get_all(void) {
   cudaDeviceProp prop;
   auto t0 = std::chrono::high_resolution_clock::now();
-	for(int i=0; i<25; i++)
+  for(int i=0; i<25; i++)
     cudaGetDeviceProperties(&prop, devId);
   auto t1 = std::chrono::high_resolution_clock::now();
   std::cout << "cudaGetDeviceProperties -> "
   <<std::chrono::duration_cast<std::chrono::microseconds>(t1-t0).count()/25.0
-	<< "us" << std::endl;
+  << "us" << std::endl;
 }
 
 void get_selected(void) {
@@ -30,7 +30,7 @@ void get_selected(void) {
       &numProcs,
       cudaDevAttrMultiProcessorCount, devId
     );
-	}
+  }
   auto t1 = std::chrono::high_resolution_clock::now();
   std::cout << "cudaGetDeviceAttribute -> "
   <<std::chrono::duration_cast<std::chrono::microseconds>(t1-t0).count()/25.0
@@ -39,7 +39,7 @@ void get_selected(void) {
 
 int main(void) {
   get_all();
-	get_selected();
+  get_selected();
   return 0;
 }
 /* ex. Output
