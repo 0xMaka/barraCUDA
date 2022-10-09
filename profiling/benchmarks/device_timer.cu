@@ -1,11 +1,11 @@
-#include <stdio.h>  // Can use c where non conflicting with c++
+#include <stdio.h> 
 
 // Device/Kernel function
 // a, i, n are stored in device thread registers
 // *x, y* are pointers to device memory
 __global__ void saxpy(int n, float a, float *x, float *y) {
   int i = (blockIdx.x * blockDim.x) + threadIdx.x;
-	if(i < n) // if in bounds
+  if(i < n) // if in bounds
     y[i] = (a * x[i]) + y[i]; // single-precision ax+y
 }
 // Host function
@@ -23,10 +23,10 @@ int main(void) {
     y[i] = 2.0f;
   }
 
-	// timer using cuda event api
+  // timer using cuda event api
   cudaEvent_t t0, t1;
-	cudaEventCreate(&t0);
-	cudaEventCreate(&t1);
+  cudaEventCreate(&t0);
+  cudaEventCreate(&t1);
 
   // init dev arrays via cp, std::memcpy + directional arg
   // source: host pointer
@@ -35,14 +35,14 @@ int main(void) {
   cudaMemcpy(devy, y, N*sizeof(float), cudaMemcpyHostToDevice);
 	
   // start timer
-	cudaEventRecord(t0);
-	// launch kernel 
+  cudaEventRecord(t0);
+  // launch kernel 
   // Between trip chevs is the `execution config`
   saxpy<<<(N+255)/256,256>>>(N, 2.0f, devx, devy);
 
   cudaEventRecord(t1);
   
-	// cp back results after running kernel function
+  // cp back results after running kernel function
   cudaMemcpy(y, devy, N*sizeof(float), cudaMemcpyDeviceToHost);
 
   cudaEventSynchronize(t1);
