@@ -72,3 +72,31 @@ Similar to cuda zero-copy memory, except here seperates memory and execution are
 - [ ] Create a character frequency analyizer and adapt it to complete the 3rd matisano challenge.
 
 - [ ] Explore Monte Carlo options pricing, before analyzing sim utility from a crypto native perspective.
+
+
+---
+
+#### List of external resources:
+
+- Device specs and datasheets (3060ti desktop/3060 mobile)
+- - https://www.nvidia.com/en-gb/geforce/graphics-cards/30-series/rtx-3060-3060ti/
+- - https://www.notebookcheck.net/NVIDIA-GeForce-RTX-3060-Mobile-GPU-Benchmarks-and-Specs.497453.0.html
+
+- Efficient GPU Programming with Modern C++ 
+- - https://www.youtube.com/watch?v=8pJS3n4MITM
+- Unified Memory for CUDA Beginners
+- - https://developer.nvidia.com/blog/unified-memory-cuda-beginners/
+- An Easy Introduction to CUDA C and C++
+- - https://developer.nvidia.com/blog/easy-introduction-cuda-c-and-c/
+- Intro to CUDA (part 2): Programming Model
+- - https://www.youtube.com/watch?v=cKI20rITSvo
+- How to Implement Performance Metrics in CUDA C/C++
+- - https://developer.nvidia.com/blog/how-implement-performance-metrics-cuda-cc/
+- How to Query Device Properties and Handle Errors in CUDA C/C++
+- - https://developer.nvidia.com/blog/how-query-device-properties-and-handle-errors-cuda-cc/
+- CUDA-Accelerated Monte-Carlo for HPC
+- - https://www.nvidia.com/docs/IO/116711/sc11-montecarlo.pdf
+- CUDA C++ Best Practices Guide
+- - https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html
+- CUDA C++ Programming Guide
+- - https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
