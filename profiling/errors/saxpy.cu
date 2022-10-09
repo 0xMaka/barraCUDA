@@ -1,7 +1,7 @@
 #include <stdio.h> 
 __global__ void saxpy(int n, float a, float *x, float *y) {
   int i = (blockIdx.x * blockDim.x) + threadIdx.x;
-	if(i < n) // if in bounds
+  if(i < n) // if in bounds
     y[i] = (a * x[i]) + y[i]; // single-precision ax+y
 }
 int main(void) {
@@ -24,20 +24,20 @@ int main(void) {
   // launch kernel 
   saxpy<<<(N+255)/256,256>>>(N, 2.0f, devx, devy);
 
-	// check for kernel errors
-	// checks for invalid config params
-	// sync errors, such as too many threads per block
-	cudaError_t errSync = cudaGetLastError();
-	// async errors, such as out of bound memory access
-	// needs a device sync, so is expensive..
-	// use with care. ie not in production
-	cudaError_t errAsync = cudaDeviceSynchronize();
+  // check for kernel errors
+  // checks for invalid config params
+  // sync errors, such as too many threads per block
+  cudaError_t errSync = cudaGetLastError();
+  // async errors, such as out of bound memory access
+  // needs a device sync, so is expensive..
+  // use with care. ie for debugging but not in production
+  cudaError_t errAsync = cudaDeviceSynchronize();
   if (errSync != cudaSuccess)
     printf("Sync kernel error: %s\n", cudaGetErrorString(errSync));
-	if (errAsync != cudaSuccess)
+  if (errAsync != cudaSuccess)
     printf("Async kernel error: %s\n", cudaGetErrorString(cudaGetLastError()));
 
-	// cp back results after running kernel function
+  // cp back results after running kernel function
   cudaMemcpy(y, devy, N*sizeof(float), cudaMemcpyDeviceToHost);
 
   float maxError = 0.0f;
