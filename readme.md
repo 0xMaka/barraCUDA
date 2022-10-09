@@ -101,7 +101,7 @@ Effective Bandwidth (GB/s): 316.280736
 ---
 
 ### Tasks:
-- [ ] Create a character frequency analyizer and adapt it to complete the 3rd matisano challenge.
+- [ ] Create a character frequency analyzer and adapt it to complete the 3rd matisano challenge.
 
 - [ ] Explore Monte Carlo options pricing, before analyzing sim utility from a crypto native perspective.
 

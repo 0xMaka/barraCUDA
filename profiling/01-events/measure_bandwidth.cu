@@ -1,4 +1,4 @@
-#include <stdio.h>  // Can use c where non conflicting with c++
+#include <stdio.h>
 
 // # Memory Bandwidth
 // - Memory Bandwidth is the theoretical maximum amount of data the bus can handle at a given time 
