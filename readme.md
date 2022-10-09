@@ -1,5 +1,5 @@
-# CUDA - Notes and experimentation 🐟
-
+# CUDA - Personal notes and experimentation 🐟
+---
 ## Basics:
 
 Cuda programs involve running code on two different platforms at the same time.
