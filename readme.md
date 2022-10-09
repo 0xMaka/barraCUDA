@@ -93,7 +93,7 @@ $$^B_WEffective = ((^RB) + (^WB)) / (t * (10 ** 9))$$
 - - WB = number of bytes written per kernel
 - - t = elapsed time in seconds
 
-Running on the device above results averaged 316 GB/s
+Running on the device above results average 316 GB/s
 ```
 Effective Bandwidth (GB/s): 316.280736
 ```
