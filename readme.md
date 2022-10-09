@@ -77,7 +77,7 @@ Similar to cuda zero-copy memory, except here seperates memory and execution are
 - RTX-3060-Mobile - Spec lists a Memory Bandwidth of 336 GB/s
 - - BUSWIDTH = 192
 - - CLOCKRATE = 1750 
-- - DDRMULTI = 8 // DDR6
+- - DDRMULTI = 8 (DDR6)
 $$^B_WTheoretical = (((CLOCKRATE * (10 ** 6)) * (BUSWIDTH/8)) * DDRMULI) / (10 ** 9)$$ 
 
 1750 * 10** 6 * (192/8) * 8 / 10** 9 = 336 GB/s
