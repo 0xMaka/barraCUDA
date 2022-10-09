@@ -66,6 +66,38 @@ Similar to cuda zero-copy memory, except here seperates memory and execution are
 
 **NOTE** :bulb: Kernel launches are asynchronous
 
+### Memory Bandwidth
+- Memory Bandwidth is the theoretical maximum amount of data the bus can handle at a given time 
+- - it is a key factor in how quickly a GPU can access and utilize its framebuffer
+
+#### Theoretical vs Effective Memory Bandwidth
+- Theoretical bandwidth can be calculated using hardware specifications
+- - Look for clock rate and memory interface width
+
+- RTX-3060-Mobile - Spec lists a Memory Bandwidth of 336 GB/s
+- - BUSWIDTH = 192
+- - CLOCKRATE = 1750 
+- - DDRMULTI = 8 // DDR6
+$$^B_WTheoretical = (((CLOCKRATE * (10 ** 6)) * (BUSWIDTH/8)) * DDRMULI) / (10 ** 9)$$ 
+
+1750 * 10** 6 * (192/8) * 8 / 10** 9 = 336 GB/s
+
+#### Effective Bandwidth
+- Effective bandwidth needs to be timed by measuring specfic activities
+- - We can use the equation: 
+$$^B_WEffective = ((^RB) + (^WB)) / (t * (10 ** 9))$$
+
+- Where: 
+- - BWEffective = bandwidth in GB's units
+- - RB = number of bytes per kernel
+- - WB = number of bytes written per kernel
+- - t = elapsed time in seconds
+
+Running on the device above results averaged 316 GB/s
+```
+Effective Bandwidth (GB/s): 316.280736
+```
+
 ---
 
 ### Tasks:
