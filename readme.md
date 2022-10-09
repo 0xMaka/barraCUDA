@@ -110,7 +110,7 @@ Effective Bandwidth (GB/s): 316.280736
 
 #### List of external resources:
 
-- Device specs and datasheets (3060ti desktop/3060 mobile)
+- Device specs and datasheets (3060ti [Founders Edition] desktop/3060 mobile)
 - - https://www.nvidia.com/en-gb/geforce/graphics-cards/30-series/rtx-3060-3060ti/
 - - https://www.notebookcheck.net/NVIDIA-GeForce-RTX-3060-Mobile-GPU-Benchmarks-and-Specs.497453.0.html
 
