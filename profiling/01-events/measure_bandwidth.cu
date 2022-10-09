@@ -28,7 +28,7 @@
 // *x, y* are pointers to device memory
 __global__ void saxpy(int n, float a, float *x, float *y) {
   int i = (blockIdx.x * blockDim.x) + threadIdx.x;
-	if(i < n) // if in bounds
+  if(i < n) // if in bounds
     y[i] = (a * x[i]) + y[i]; // single-precision ax+y
 }
 // Host function
@@ -46,10 +46,10 @@ int main(void) {
     y[i] = 2.0f;
   }
 
-	// timer using cuda event api
+  // timer using cuda event api
   cudaEvent_t t0, t1;
-	cudaEventCreate(&t0);
-	cudaEventCreate(&t1);
+  cudaEventCreate(&t0);
+  cudaEventCreate(&t1);
 
   // init dev arrays via cp, std::memcpy + directional arg
   // source: host pointer
@@ -58,14 +58,14 @@ int main(void) {
   cudaMemcpy(devy, y, N*sizeof(float), cudaMemcpyHostToDevice);
 	
   // start timer
-	cudaEventRecord(t0);
-	// launch kernel 
+  cudaEventRecord(t0);
+  // launch kernel 
   // Between trip chevs is the `execution config`
   saxpy<<<(N+512)/512,512>>>(N, 2.0f, devx, devy);
 
   cudaEventRecord(t1);
   
-	// cp back results after running kernel function
+  // cp back results after running kernel function
   cudaMemcpy(y, devy, N*sizeof(float), cudaMemcpyDeviceToHost);
 
   cudaEventSynchronize(t1);
@@ -77,7 +77,7 @@ int main(void) {
     maxError = max(maxError, abs(y[i]-4.0f));
   printf("Max error %.*f\n", 6, maxError);			
   printf("Effective Bandwidth (GB/s): %.*f\n", 6, N*4*3/milliseconds/1e6);
-	// about 316 gb/s
+  // about 316 gb/s
 
   free(x);  // free host mem
   free(y);
