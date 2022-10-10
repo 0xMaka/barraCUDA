@@ -132,3 +132,13 @@ Effective Bandwidth (GB/s): 316.280736
 - - https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html
 - CUDA C++ Programming Guide
 - - https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
+
+Paid resources:
+- Professional CUDA C Programming
+- - by John Cheng (Author), Max Grossman (Author), Ty McKercher  (Author)
+- - https://www.amazon.com/dp/B00NGK1LE0/ 
+- Effective C: An Introduction to Professional C Programming
+- - by Robert C. Seacord  (Author)   
+- - https://www.amazon.com/gp/product/B0852NTB2H/
+
+
