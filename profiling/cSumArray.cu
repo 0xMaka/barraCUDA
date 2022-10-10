@@ -43,13 +43,13 @@ void verify(float *href, float *dref, const int N) {
 }
   
 int main(int argc, char **argv) {
-	printf("[+] Setting up device...\n");
+  printf("[+] Setting up device...\n");
   
-	// list some device info
-	int id = 0;
-	cudaDeviceProp prop;
-	cudaGetDeviceProperties(&prop, id);
-	printf("[=] %s with id %d\n", prop.name, id);
+  // list some device info
+  int id = 0;
+  cudaDeviceProp prop;
+  cudaGetDeviceProperties(&prop, id);
+  printf("[=] %s with id %d\n", prop.name, id);
 
   // set vector size
   int elements = 1<<20;
@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
   href = (float *)malloc(bytes);
   dref = (float *)malloc(bytes);
   
-	printf("[+] Generating data with %d elements\n", elements);
+  printf("[+] Generating data with %d elements\n", elements);
   // generate data
   initial_data(ha, elements);
   initial_data(hb, elements);
@@ -86,34 +86,34 @@ int main(int argc, char **argv) {
   cudaMemcpy(db, hb, bytes, cudaMemcpyHostToDevice);
   cudaMemcpy(dc, dref, bytes, cudaMemcpyHostToDevice);
 
-	// set up timer
-	clock_t t0, t1;
+  // set up timer
+  clock_t t0, t1;
 
-	printf("[+] Running host side..\n");
+  printf("[+] Running host side..\n");
   t0 = clock();
   // run host side
   h_sum_array(ha, hb, href, elements);
   t1 = clock();
-	printf("[+] CPU side array finished in: %f\n", (double)(t1-t0)/CLOCKS_PER_SEC);
+  printf("[+] CPU side array finished in: %f\n", (double)(t1-t0)/CLOCKS_PER_SEC);
 
-	// kernel prep
+  // kernel prep
   int len = 512;
   dim3 block (len);
   dim3 grid ((elements + block.x -1) / block.x);
   
-	printf("[+] Running Device side..\n");
-	t0 = clock();
-	// run kernel
+  printf("[+] Running Device side..\n");
+  t0 = clock();
+  // run kernel
   d_sum_array<<<grid,block>>>(da, db, dc, elements);
   
-	// check for errors
-	cudaError_t errSync = cudaGetLastError();
+  // check for errors
+  cudaError_t errSync = cudaGetLastError();
   cudaError_t errAsync = cudaDeviceSynchronize();
-	t1 = clock();
-	printf("[+] GPU side array finished in: %f\n", (double)(t1-t0)/CLOCKS_PER_SEC);
+  t1 = clock();
+  printf("[+] GPU side array finished in: %f\n", (double)(t1-t0)/CLOCKS_PER_SEC);
   
   printf("[+] Checking for errors..\n");
-	if (errSync != cudaSuccess)
+  if (errSync != cudaSuccess)
     printf("[!!] Sync kernel error: %s\n", cudaGetErrorString(errSync));
   if (errAsync != cudaSuccess)
     printf("[!!] Async kernel error: %s\n", cudaGetErrorString(errAsync));
