@@ -37,9 +37,9 @@ void verify(float *href, float *dref, const int N) {
       printf("[!!] href: %5.2f dref: %5.2f @ current: %d\n", href[i], dref[i], i);
       break;
     }
-	if (result)
-	  printf("[+] Matching\n");
-	return;
+  if (result)
+    printf("[+] Matching\n");
+  return;
   }
 }
   
