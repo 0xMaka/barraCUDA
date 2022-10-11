@@ -15,24 +15,24 @@ int main(int argc, char **argv) {
   int elements = 1024;
 
   // define grid and block structure
-	dim3 block = (1024);
-	dim3 grid ((elements + block.x -1) / block.x);
-	printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
+  dim3 block = (1024);
+  dim3 grid ((elements + block.x -1) / block.x);
+  printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
 
   // reset block
   block.x = 512;
-	grid.x = (elements + block.x -1) / block.x;
-	printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
+  grid.x = (elements + block.x -1) / block.x;
+  printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
 
   // reset block
   block.x = 256;
-	grid.x = (elements + block.x -1) / block.x;
-	printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
+  grid.x = (elements + block.x -1) / block.x;
+  printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
 
   // reset block
   block.x = 128;
-	grid.x = (elements + block.x -1) / block.x;
-	printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
+  grid.x = (elements + block.x -1) / block.x;
+  printf("[+] grid.x %d block.x %d \n", grid.x, block.x);
 
   // reset device
   cudaDeviceReset();
@@ -40,10 +40,10 @@ int main(int argc, char **argv) {
 }
 
 /* ex Output:
-	 [+] grid.x 1 block.x 1024 
-	 [+] grid.x 2 block.x 512 
-	 [+] grid.x 4 block.x 256 
-	 [+] grid.x 8 block.x 128
+  [+] grid.x 1 block.x 1024 
+  [+] grid.x 2 block.x 512 
+  [+] grid.x 4 block.x 256 
+  [+] grid.x 8 block.x 128
  */
 
 

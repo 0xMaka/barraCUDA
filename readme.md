@@ -40,7 +40,7 @@ __host__ void my_func(void);
 - - Runs on the CPU (host)
 - - Is callable from the CPU (host) only
 
-### \_\_host\_\_ (keyword)
+### \_\_device\_\_ (keyword)
 ```
 __device__ void my_func(void);
 ```
