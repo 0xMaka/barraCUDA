@@ -30,6 +30,23 @@ __global__ void my_func(void);
 - Indicates a function that:
 - - Runs on the GPU (device)
 - - Is called from the CPU (host), or other device code
+**NOTE** Must have void kreturn type
+
+### \_\_host\_\_ (keyword)
+```
+__host__ void my_func(void);
+```
+- Indicates a function that:
+- - Runs on the CPU (host)
+- - Is callable from the CPU (host) only
+
+### \_\_host\_\_ (keyword)
+```
+__device__ void my_func(void);
+```
+- Indicates a function that:
+- - Runs on the GPU (device)
+- - Is callable from the GPU (device) only
 
 ### nvcc - nvidia's c complier
 - Parses which functions to process:
