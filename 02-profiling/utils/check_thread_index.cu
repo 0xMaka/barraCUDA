@@ -5,8 +5,8 @@
   const cudaError_t err = call;\
   if(err != cudaSuccess) {\
     printf("Error: %s: %d ", __FILE__, __LINE__);\
-		printf("code: %d reason: %s\n", err, cudaGetErrorString(err));\
-		exit (-10*err);\
+    printf("code: %d reason: %s\n", err, cudaGetErrorString(err));\
+    exit (-10*err);\
   }\
 }
 
@@ -25,9 +25,9 @@ void get_matrix(int *C, const int nx, const int ny) {
       printf("%3d", ic[ix]);
       if (n==2) printf("\n[>]");
       n++;
-	}
-	ic += nx;
-	printf("\n");
+  }
+  ic += nx;
+  printf("\n");
   printf("[+] ===========================================================================\n");
 }
 
@@ -97,8 +97,7 @@ int main(int argc, char **argv) {
   // free mem
   cudaFree(dmata);
   free(ha);
-	
-	// device reset
+  // device reset
   printf("[+] Device Reset.\n");
   cudaDeviceReset();
   printf("[x] ===========================================================================\n");
