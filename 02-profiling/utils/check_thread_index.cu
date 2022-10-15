@@ -23,8 +23,8 @@ void get_matrix(int *C, const int nx, const int ny) {
   for (int iy=0; iy<ny; iy++) {
     for (int ix=0; ix<nx; ix++) 
       printf("%3d", ic[ix]);
-      if (n==2) printf("\n[>]");
-      n++;
+    if (n==2) printf("\n[>]");
+    n++;
   }
   ic += nx;
   printf("\n");
