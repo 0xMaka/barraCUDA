@@ -31,10 +31,9 @@ void hsum_matrix(float *A, float *B, float *C, const int nx, const int ny) {
   return;
 }
 
-__global__ void gsum_matrix(float *matA, float *matB, float *matC, int nx, int ny) {
+__global__ void gsum_mixmatrix(float *matA, float *matB, float *matC, int nx, int ny) {
   unsigned int ix = threadIdx.x + blockIdx.x * blockDim.x;
-  unsigned int iy = threadIdx.y + blockIdx.y * blockDim.y;
-
+  unsigned int iy = threadIdx.y;
   unsigned int idx = iy * nx + ix;
   if (ix < nx && iy < ny)
     matC[idx] = matA[idx] + matB[idx];
@@ -108,17 +107,12 @@ int main (int argc, char **argv) {
   cudaMemcpy(dmatA, ha, bytes, cudaMemcpyHostToDevice);
   cudaMemcpy(dmatB, hb, bytes, cudaMemcpyHostToDevice);
 
-  int dimx = 32;
-  //int dimx = 16;
-  //int dimy = 32;
-  int dimy = 16;
-
-  dim3 block(dimx, dimy);
-  dim3 grid((nx + block.x - 1) / block.x, (ny + block.y - 1) / block.y);
+  dim3 block(256);
+  dim3 grid((nx + block.x - 1) / block.x, ny);
 
   printf("[>] Running Device Side.\n"); 
   t0 = clock();
-  gsum_matrix <<< grid, block >>> (dmatA, dmatB, dmatC, nx, ny);
+  gsum_mixmatrix <<< grid, block >>> (dmatA, dmatB, dmatC, nx, ny);
 
   cudaDeviceSynchronize();
   t1 = clock();
@@ -139,18 +133,3 @@ int main (int argc, char **argv) {
 
   return 0;
 }
-
-/* ex Output
-[x] ==========================================================
-[-] Loading Device Info..
-[+] Working With Device 0: NVIDIA GeForce RTX 3060 Laptop GPU
-[+] Matrix Size -> nx: 16384 ny: 16384
-[-] Initializing Data..
-[+] Initialized in: 6.138594
-[>] Running Host Side.
-[>] Running Device Side.
-[+] Arrays Match.
-[+] ----------------------------------------------------------
-[>] CPU: 0.241003 | GPU: 0.010223 | <<<(1024,1024), (16,16)>>>
-[x] ==========================================================
-*/
